@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Cart</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+<h:body>
+	<ui:composition template="WEB-INF/templates/BasicTemplate.xhtml">
+	<ui:define name="content">
+	
+	<h2>Your cart</h2> 
+    <h:form>
+    	
+		<h:dataTable value="#{customerBean.orderList}" var="item"
+			styleClass="table" headerClass="tableHeader"
+			rowClasses="tableOddRow, tableEvenRow">
+
+			<h:column>
+				<f:facet name="header">Name</f:facet> 
+				#{item.food.name} 
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Price</f:facet> 
+				#{item.price} 
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Category</f:facet> 
+				#{item.food.foodCategory.name} 
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+				</f:facet>
+				<h:commandButton action="#{customerBean.deleteFromCart(item.food.id)}"
+					value="Delete" />
+			</h:column>
+
+
+		</h:dataTable>
+		
+		<h:commandButton action="FoodCategoryList" value="Show food categories" />
+	</h:form>
+	</ui:define>
+	</ui:composition> 
+</h:body>
+</html>

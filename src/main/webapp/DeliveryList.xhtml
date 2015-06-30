@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Delivery list</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+<h:body>
+	<ui:composition template="WEB-INF/templates/EmployeeTemplate.xhtml">
+	<ui:define name="content">
+	
+	<h2>Delivery list</h2>
+	#{deliveryBean.refreshList()}
+	 
+    <h:form>
+    	<h:selectOneMenu valueChangeListener="#{deliveryBean.filter}" onchange="submit()" 
+				value="#{deliveryBean.filterStatus}" >
+    		<f:selectItems value="#{deliveryBean.list}" />
+    	</h:selectOneMenu>
+
+    	<h:dataTable value="#{deliveryBean.foodOrders}" var="order"
+			styleClass="table" headerClass="tableHeader"
+			rowClasses="tableOddRow, tableEvenRow">
+
+			<h:column>
+				<f:facet name="header">Time</f:facet> 
+				<h:outputText value="#{order.time}">
+					<f:convertDateTime type="both" />
+				</h:outputText>
+				 
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Customer</f:facet> 
+				#{order.customer.name} 
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Customer address</f:facet> 
+				#{order.customer.address} 
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Customer phone</f:facet> 
+				#{order.customer.phone} 
+			</h:column>
+			
+			<h:column>
+				<h:panelGroup layout="block" rendered="#{deliveryBean.buttonRendered(order.status)}">
+					<h:commandButton value="#{deliveryBean.buttonName(order.status)}" 
+						action="#{deliveryBean.buttonAction(order.id, order.status)}">
+					</h:commandButton>
+				</h:panelGroup>
+			</h:column>
+
+
+		</h:dataTable>
+	</h:form>
+	</ui:define>
+	</ui:composition> 
+</h:body>
+</html>

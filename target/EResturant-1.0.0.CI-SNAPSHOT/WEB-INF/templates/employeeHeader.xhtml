@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+	<ui:composition>
+	
+		
+		<h2>ERestaurant for employee</h2>
+		
+		<h:panelGroup layout="block" rendered="#{employeeBean.signedIn}">
+		    <h:form>
+		    	Signed in as #{employeeBean.employee.name}
+		    	<h:commandButton value="Sign Out" action="#{employeeBean.signOut()}" />
+		    </h:form>
+		</h:panelGroup>
+
+		<h:panelGroup layout="block" rendered="#{!employeeBean.signedIn}">
+			
+		</h:panelGroup>
+		
+	</ui:composition>
+</body>
+</html>

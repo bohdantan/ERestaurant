@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+	<ui:composition>
+	
+		<div style="padding:10px">
+		<h2>ERestaurant for employee</h2>
+		
+		<div style="float:right">
+			<h:panelGroup layout="block" rendered="#{employeeBean.signedIn}">
+			    <h:form>
+			    	Signed in as #{employeeBean.employee.name}
+			    	<h:commandButton value="Sign Out" action="#{employeeBean.signOut()}" />
+			    </h:form>
+			</h:panelGroup>
+		</div>
+
+		<h:form>
+			<h:panelGroup layout="block" rendered="#{employeeBean.signedIn and employeeBean.employee.sequrityOfficer}">
+		    	<h:commandButton value="Employees" action="EmployeeList" />
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" rendered="#{employeeBean.signedIn and employeeBean.employee.administrator}">
+		    	<h:commandButton value="Dishes" action="FoodList" />
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" rendered="#{employeeBean.signedIn and employeeBean.employee.kitchenStaff}">
+		    	<h:commandButton value="Kitchen list" action="KitchenList" />
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" rendered="#{employeeBean.signedIn and employeeBean.employee.deliveryStaff}">
+		    	<h:commandButton value="Delivery list" action="DeliveryList" />
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" rendered="#{employeeBean.signedIn and employeeBean.employee.businessAnalyst}">
+		    	<h:commandButton value="Reports" action="Reports" />
+			</h:panelGroup>
+		</h:form>
+		
+		</div>
+		
+	</ui:composition>
+</body>
+</html>

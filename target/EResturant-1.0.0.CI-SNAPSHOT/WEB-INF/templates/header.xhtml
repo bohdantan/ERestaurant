@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+	<ui:composition styleClass="customerHeader">
+	
+		<h2>ERestaurant for customer</h2>
+		<h:panelGroup layout="block" rendered="#{customerBean.signedIn}">
+		    <h:form>
+		    	Signed in as #{customerBean.customer.name}
+		    	<h:commandButton value="Sign Out" action="#{customerBean.signOut()}" />
+		    </h:form>
+		</h:panelGroup>
+
+		<h:panelGroup layout="block" rendered="#{!customerBean.signedIn}">
+			<h:form>
+				<h:commandButton value="Register" action="#{customerBean.startRegister()}" />
+				<h:commandButton value="Sign In" action="#{customerBean.startSignIn()}" />
+			</h:form>
+		</h:panelGroup>
+		
+		<h:form> 
+			You have #{customerBean.count} items with total price #{customerBean.sum}
+			<h:commandButton value="Edit cart" action="Cart" />
+			<h:commandButton value="Submit cart" action="#{customerBean.submitCart()}" />
+		</h:form>
+		
+	</ui:composition>
+</body>
+</html>

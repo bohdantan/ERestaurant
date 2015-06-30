@@ -1,0 +1,41 @@
+*{
+    font-family:Book Antiqua;
+}
+
+.employeeHeader {
+	background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.footer {
+	background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.table {
+	border-collapse: collapse;
+	border: 1px solid #000000;
+}
+
+.tableHeader {
+	text-align: center;
+	background: none repeat scroll 0 0 #B5B5B5;
+	border-bottom: 1px solid #000000;
+	padding: 2px;
+}
+
+.tableOddRow {
+	text-align: center;
+	background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.tableEvenRow {
+	text-align: center;
+	background: none repeat scroll 0 0 #CCCCCC;
+}
+
+a{
+	background-color: brown;
+	color: white;
+	font-weight: bold;
+	font-size: 1.4em;
+	font-style: normal;
+}

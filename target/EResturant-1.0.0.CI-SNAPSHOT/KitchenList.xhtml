@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Kitchen list</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+<h:body>
+	<ui:composition template="WEB-INF/templates/EmployeeTemplate.xhtml">
+	<ui:define name="content">
+	
+	<h2>Kitchen list:</h2>
+	#{kitchenBean.refreshList()}
+	 
+    <h:form>
+    	<h:dataTable value="#{kitchenBean.orderItems}" var="item"
+			styleClass="table" headerClass="tableHeader"
+			rowClasses="tableOddRow, tableEvenRow">
+
+			<h:column>
+				<f:facet name="header">Id</f:facet> 
+				#{item.id} 
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Time</f:facet> 
+				#{item.foodOrder.time} 
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Food</f:facet> 
+				#{item.food.name} 
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Done</f:facet> 
+				<h:panelGroup layout="block" rendered="#{item.done}">
+				    Done
+				</h:panelGroup>
+				
+				<h:panelGroup layout="block" rendered="#{!item.done}">
+				    <h:form>
+				    	<h:commandButton value="Mark done" action="#{customerBean.signOut()}" />
+				    </h:form>
+				</h:panelGroup>
+			</h:column>
+
+
+		</h:dataTable>
+	</h:form>
+	</ui:define>
+	</ui:composition> 
+</h:body>
+</html>

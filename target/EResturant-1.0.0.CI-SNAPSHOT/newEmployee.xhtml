@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>New employee</title>
+</h:head>
+<h:body>
+	<ui:composition template="WEB-INF/templates/EmployeeTemplate.xhtml">
+	<ui:define name="content">
+
+	<h1>Employee</h1>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputText value="Name:" />
+			<h:inputText id="eName" value="#{employeeListBean.employee.name}" required="true" >
+			</h:inputText>
+			<h:message for="eName" style="color:red" />
+			
+			<h:outputText value="Password:" />
+			<h:inputText id="ePass" value="#{employeeListBean.employee.password}" required="true" >
+			</h:inputText>
+			<h:message for="ePass" style="color:red" />
+			
+			<h:outputText value="Address:" />
+			<h:inputText id="eAddress" value="#{employeeListBean.employee.address}" required="true" >
+			</h:inputText>
+			<h:message for="eAddress" style="color:red" />
+			
+			<h:outputText value="Email:" />
+			<h:inputText id="eEmail" value="#{employeeListBean.employee.email}" required="true" >
+			</h:inputText>
+			<h:message for="eEmail" style="color:red" />
+			
+			<h:outputText value="Phone:" />
+			<h:inputText id="ePhone" value="#{employeeListBean.employee.phone}" required="true" >
+			</h:inputText>
+			<h:message for="ePhone" style="color:red" />
+			
+			<h:outputText value="Activated:" />
+			<h:selectBooleanCheckbox id="activated" value="#{employeeListBean.employee.activated}" />
+			<h:outputText value=" "></h:outputText>
+			
+			<h:outputText value="Administarator:" />
+			<h:selectBooleanCheckbox id="admin" value="#{employeeListBean.employee.administrator}" />
+			<h:outputText value=" "></h:outputText>
+			
+			<h:outputText value="Kitchen staff:" />
+			<h:selectBooleanCheckbox id="kitchenSt" value="#{employeeListBean.employee.kitchenStaff}" />
+			<h:outputText value=" "></h:outputText>
+			
+			<h:outputText value="Delivery staff:" />
+			<h:selectBooleanCheckbox id="deliverySt" value="#{employeeListBean.employee.deliveryStaff}" />
+			<h:outputText value=" "></h:outputText>
+			
+			<h:outputText value="Business analyst:" />
+			<h:selectBooleanCheckbox id="businessAn" value="#{employeeListBean.employee.businessAnalyst}" />
+			<h:outputText value=" "></h:outputText>
+			
+			<h:outputText value="Sequrity officer:" />
+			<h:outputText value="#{employeeListBean.employee.sequrityOfficer}" />
+			<h:outputText value=" "></h:outputText>
+
+		</h:panelGrid>
+		<h:commandButton value="Submit" action="#{employeeListBean.saveEmployee}" />
+	</h:form>
+	</ui:define>
+	</ui:composition>
+	
+</h:body>
+</html>

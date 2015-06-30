@@ -1,0 +1,18 @@
+----------------------------------------------------------------
+Wed Jul 01 01:29:19 EEST 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014e-4696-5786-000003e4f578 
+on database directory C:\Users\user\Documents\workspace\ER with class loader WebappClassLoader
+  context: ERestaurant
+  delegate: false
+----------> Parent Classloader:
+java.net.URLClassLoader@2626b418
+ 
+Loaded from file:/C:/Users/user/Documents/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Erestaurant/WEB-INF/lib/derby-10.11.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_45-b14
+user.dir=C:\Users\user\Documents\workspace\Erestaurant
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
